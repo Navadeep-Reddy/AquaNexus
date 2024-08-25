@@ -11,6 +11,7 @@ export default {
         SecondaryGreen : "#20B2AA",
         AccentCoral: "#FF6F61",
         BackgroundSand: "#F5F5DC",
+        TextCharcoal: "#333333",
       },
     },
   },
