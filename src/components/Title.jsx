@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Title = () => {
+const Title = ({Title, Subtitle}) => {
   return (
-    <div>
-      
+    <div className='w-full flex flex-col justify-center items-center mt-10'>
+      <h1 className='text-5xl font-semibold text-PrimaryBlue'>{Title}</h1>
+      <p className='text-TextCharcoal font-medium'>{Subtitle}</p>
     </div>
   )
 }

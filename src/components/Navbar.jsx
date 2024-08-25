@@ -12,7 +12,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`w-full fixed top-0 ${sticky? "bg-PrimaryBlue" : "bg-inherit"} duration-200`}>
+    <div className={`w-full fixed top-0 ${sticky? "bg-PrimaryBlue" : "bg-inherit"} duration-300`}>
         <div className={`xl:w-[80%] md:w-[90%] sm:w-[100%] mx-auto flex justify-between items-center`}>
         <div className='max-h-full'>
             <img src={Logo1} className='xl:h-[4rem] h-[3rem]'></img>
