@@ -18,7 +18,7 @@ const Navbar = () => {
             <img src={Logo1} className='xl:h-[4rem] h-[3rem]'></img>
         </div>
 
-        <ul className='font-medium xl:text-2xl lg:text-2xl text-xl text-AccentCoral flex '>
+        <ul className='font-medium xl:text-2xl lg:text-2xl text-xl text-AccentCoral flex cursor-pointer'>
             <li className='mx-5'>Home</li>
             <li className='mx-5'>Search</li>
             <li className='mx-5'>Visualize</li>
