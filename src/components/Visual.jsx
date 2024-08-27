@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 import Map from './Map';
 import axios from 'axios';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 const Visual = () => {
   const [position, setPosition] = useState(null);
@@ -16,7 +18,8 @@ const Visual = () => {
     try {
       const response = await axios.get("http://localhost:3000/api");
       const data = {species, startDate ,endDate, depth};
-      console.log(data);
+      console.log(response.data.cars);
+      
       
       if (response.data) {
         setError(null);  
@@ -76,7 +79,7 @@ const Visual = () => {
           <div className='flex flex-col justify-center items-center transition-500'>
             <h1 className='text-4xl font-bold text-PrimaryBlue mt-5'>Generate Charts</h1>
             <p className='mb-5 text-AccentCoral font-medium text-xl'>{error}</p>
-            <button className='border-none w-[160px] h-[40px] rounded-md bg-AccentCoral font-semibold text-xl text-TextCharcoal shadow-md' type='submit'>Visualize</button>
+            <PrimaryButton>Visualize</PrimaryButton>
           </div>
         </div>
       </div>
