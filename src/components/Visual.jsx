@@ -51,7 +51,7 @@ const Visual = () => {
 
         <div className='Button-container lg:basis-1/2 flex justify-center items-center' onClick={() => console.log(position)}>
           <div className='flex flex-col justify-center items-center'>
-            <h1 className='text-4xl font-bold text-PrimaryBlue my-5'>Generate Graphs</h1>
+            <h1 className='text-4xl font-bold text-PrimaryBlue my-5'>Generate Charts</h1>
             <button className='border-none w-[160px] h-[40px] rounded-md bg-AccentCoral font-semibold text-xl text-TextCharcoal' type='text'>Visualize</button>
           </div>
         </div>
