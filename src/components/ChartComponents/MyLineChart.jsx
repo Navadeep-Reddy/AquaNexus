@@ -2,7 +2,7 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'Page A', Fish: 4000, Cow: 2400, amt: 2400 },
+  { name: 'Page A', Fish: 4000, Cow: 2800, amt: 2500 },
   { name: 'Page B', Fish: 3000, Cow: 1398, amt: 2210 },
   { name: 'Page C', Fish: 2000, Cow: 9800, amt: 2290 },
   { name: 'Page D', Fish: 2780, Cow: 3908, amt: 2000 },

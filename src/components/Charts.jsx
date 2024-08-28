@@ -1,6 +1,7 @@
 import React from 'react'
 import MyLineChart from './ChartComponents/MyLineChart'
 import MyPieChart from './ChartComponents/MyPieChart'
+import FilterBox from './FilterBox'
 
 const Charts = () => {
   return (
@@ -9,7 +10,7 @@ const Charts = () => {
         <MyLineChart />
       </div>
       <div className='w-full lg:w-1/2 h-[300px]'>
-        <MyPieChart />
+        <FilterBox />
       </div>
     </div>
   )
