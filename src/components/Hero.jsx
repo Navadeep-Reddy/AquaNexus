@@ -1,6 +1,8 @@
 import React from 'react'
 import Lottie from 'lottie-react'
+import SecondaryButton from './SecondaryButton'
 import Fish from '/src/assets/KoiFish.json'
+import { Link } from 'react-scroll'
 
 const Hero = () => {
   return (
@@ -12,9 +14,10 @@ const Hero = () => {
         <h2 className='text-xl font-medium mt-2 text-AccentCoral'>
           Centralized Access to Comprehensive Marine Data for Smarter, Species-Specific Forecasting.
         </h2>
-        <p className='mt-5 text-TextCharcoal'>
+        <p className='mt-5 mb-10 text-TextCharcoal'>
           Explore a unified platform that aggregates georeferenced fish catch data, enabling researchers to dive deeper into species-specific habitat models. Our advanced search, visualization, and data management tools streamline the research process, allowing you to focus on what matters most—making informed, sustainable decisions for the future of our oceans.
         </p>
+        <Link to='General-Chart' smooth={true} duration={500} offset={-300}><SecondaryButton>Explore</SecondaryButton></Link>
       </div>
       <div className='w-full md:w-1/2 flex justify-center'>
         <Lottie animationData={Fish} />
