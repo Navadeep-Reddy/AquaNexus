@@ -28,7 +28,7 @@ export default class MyPieChart extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={300}>
         <PieChart width={400} height={400}>
           <Pie
             data={data}
