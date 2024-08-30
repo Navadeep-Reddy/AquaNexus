@@ -1,28 +1,41 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Page A', Fish: 4000, Cow: 2800, amt: 2500 },
-  { name: 'Page B', Fish: 3000, Cow: 1398, amt: 2210 },
-  { name: 'Page C', Fish: 2000, Cow: 9800, amt: 2290 },
-  { name: 'Page D', Fish: 2780, Cow: 3908, amt: 2000 },
-  { name: 'Page E', Fish: 1890, Cow: 4800, amt: 2181 },
-  { name: 'Page F', Fish: 2390, Cow: 3800, amt: 2500 },
-  { name: 'Page G', Fish: 3490, Cow: 4300, amt: 2100 },
-];
+const MyLineChart = ({ data, selectedItems, setSelectedItems }) => {
+  // Find the overall min and max values in the data
+  const allValues = data.flatMap(item => Object.values(item).filter(val => typeof val === 'number'));
+  const minValue = Math.min(...allValues);
+  const maxValue = Math.max(...allValues);
 
-const MyLineChart = () => (
-  <ResponsiveContainer width="100%" height={300}>
-    <LineChart data={data} className=''>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="Fish" stroke="#FF6F61" strokeWidth={3}/>
-      <Line type="monotone" dataKey="Cow" stroke="#82ca9d" strokeWidth={3}/>
-    </LineChart>
-  </ResponsiveContainer>
-);
+  return (
+    <div className="h-[300px] w-full"> 
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis domain={[minValue, maxValue]} /> 
+          <Tooltip />
+          <Legend />
+
+          <Line
+            type="monotone"
+            dataKey={Object.keys(data[0]).find(key => key !== 'date')}
+            stroke="transparent"
+            strokeWidth={0}
+          />
+          {selectedItems.map((key, index) => (
+            <Line
+              type="monotone"
+              dataKey={key}
+              stroke={`hsl(${index * 45}, 70%, 50%)`} 
+              strokeWidth={3}
+              key={key}
+            />
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
 
 export default MyLineChart;

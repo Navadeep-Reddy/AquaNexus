@@ -11,7 +11,7 @@ const App = () => {
     <div >
       <Navbar />
       <Hero />
-      <Title Title={"Charts"} Subtitle={"Visualize the fish"} />
+      <Title Title={"Charts"} Subtitle={"Graphical representation of aquatic data"} />
       <Charts />
       <Title Title={"Filter"} Subtitle={"Choose the required data"} />
       <Visual />
