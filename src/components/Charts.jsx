@@ -20,11 +20,16 @@ const Charts = () => {
   const [selectedLineData, SetSelectedItemsLineData] = useState([]);
 
   return (
-    <div className='flex flex-col lg:flex-row lg:w-[90%] mx-auto my-[10vh]' name = "General-Chart">
-      <div className='w-full lg:w-1/2 h-[300px] mb-4 lg:mb-0'>
+    <div className='flex flex-col lg:flex-row lg:w-[90%] mx-auto my-[10vh] h-[600px]' name = "General-Chart">
+      <div className='w-full lg:w-1/2 h-[300px] my-4 lg:mb-0'>
         <MyLineChart data = {line_server_data} selectedItems = {selectedLineData} SetSelectedItems = {SetSelectedItemsLineData}/>
       </div>
-      <div className='w-full lg:w-1/2 h-[300px]'>
+    
+      <div className='w-full lg:w-1/2 h-[300px] lg:mx-10'>
+        <div className='flex flex-col items-center my-5'>
+          <h1 className='text-2xl font-semibold text-PrimaryBlue'>Fish Catch Trends Over Time</h1>
+          <p className='font-medium'>Analyzing Fish Catch Weight Across Selected Dates</p>
+        </div>
         <FilterBox data = {line_server_data} selectedItems = {selectedLineData} SetSelectedItems = {SetSelectedItemsLineData}/>
       </div>
     </div>

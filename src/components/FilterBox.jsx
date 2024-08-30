@@ -31,8 +31,8 @@ const FilterBox = ({data, selectedItems, SetSelectedItems }) => {
   };
 
   return (
-    <div className='h-full relative  flex justify-center'>
-      <div className='slider  h-1/2 py-10 overflow-hidden  w-[80%]'>
+    <div className='h-1/2 relative  flex justify-center items-center'>
+      <div className='slider  h-[150px] py-10 overflow-hidden  w-[80%]'>
         <ul className='flex w-[1000%]  h-full items-stretch duration-500 font-medium text-BackgroundSand' ref={slider}>
           {All_Species.map((Fish_name, index) => {
           return(
@@ -43,8 +43,8 @@ const FilterBox = ({data, selectedItems, SetSelectedItems }) => {
           })}
         </ul>
       </div>
-      <FaCircleArrowRight className='absolute top-[19%] right-[1%] transform text-[40px] text-TextCharcoal' onClick={MoveRight} />
-      <FaCircleArrowLeft className='absolute top-[19%] left-[2%] transform text-[40px] text-TextCharcoal' onClick={MoveLeft} />
+      <FaCircleArrowRight className='absolute top-[35%] right-[1%] transform text-[40px] text-TextCharcoal' onClick={MoveRight} />
+      <FaCircleArrowLeft className='absolute top-[35%] left-[2%] transform text-[40px] text-TextCharcoal' onClick={MoveLeft} />
     </div>
   );
 }
