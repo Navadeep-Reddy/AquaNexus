@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { FaCircleArrowLeft, FaCircleArrowRight } from "react-icons/fa6";
-
+import { motion } from 'framer-motion';
 
 
 const FilterBox = ({data, selectedItems, SetSelectedItems }) => {
@@ -36,9 +36,11 @@ const FilterBox = ({data, selectedItems, SetSelectedItems }) => {
         <ul className='flex w-[1000%]  h-full items-stretch duration-500 font-medium text-BackgroundSand' ref={slider}>
           {All_Species.map((Fish_name, index) => {
           return(
-          <li className= {`w-[150px] p-[20px] bg-gradient-to-tr from-SecondaryGreen to-PrimaryBlue flex justify-center items-center mx-5 rounded-xl shadow-xl ${selectedItems.includes(Fish_name)? "border-4 border-AccentCoral" : ""}`} onClick={() => handleClick(Fish_name)} key={index}>
+          <motion.li
+          whileHover = {{scale: 1.1}} 
+          className= {`w-[150px] p-[20px] bg-gradient-to-tr from-SecondaryGreen to-PrimaryBlue flex justify-center items-center mx-5 rounded-xl shadow-xl duration-200 ${selectedItems.includes(Fish_name)? "border-4 border-AccentCoral" : ""}`} onClick={() => handleClick(Fish_name)} key={index}>
             <h1 h1 className='text-xl' >{Fish_name}</h1>
-          </li>
+          </motion.li>
           )
           })}
         </ul>
