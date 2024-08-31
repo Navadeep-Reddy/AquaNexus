@@ -38,10 +38,10 @@ const FilterBox = ({ data, selectedItems, SetSelectedItems }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{  scale: 0.95 }}
                 transition={{ duration: 0.1 }}
-                className={`w-[150px] p-[20px] bg-gradient-to-b from-SecondaryGreen flex justify-center items-center mx-5 rounded-xl shadow-xl duration-200 ${
+                className={`w-[150px] p-[20px] bg-gradient-to-b from-PrimaryBlue flex justify-center items-center mx-5 rounded-xl shadow-xl duration-200 ${
                   selectedItems.includes(Fish_name)
                     ? "to-AccentCoral text-white"
-                    : "to-PrimaryBlue"
+                    : "to-SecondaryGreen"
                 }`}
                 onClick={() => handleClick(Fish_name)}
                 key={index}
