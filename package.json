@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "axios": "^1.7.5",
     "framer-motion": "^11.3.31",
     "leaflet": "^1.9.4",
