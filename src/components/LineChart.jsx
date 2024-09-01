@@ -83,7 +83,7 @@ const Charts = () => {
       >
         <div className='flex flex-col items-center my-5'>
           <h1 className='text-2xl font-semibold text-PrimaryBlue'>Fish Catch Trends Over Time</h1>
-          <p className='font-medium'>Analyzing Fish Catch Weight Across Selected Dates</p>
+          <p className='font-medium'>Analyzing Fish Catch Weight Across The Date Range</p>
         </div>
         <FilterBox 
           data={line_server_data} 
