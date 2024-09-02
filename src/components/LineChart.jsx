@@ -55,7 +55,7 @@ const Charts = () => {
   return (
     <motion.div 
       ref={containerRef}
-      className='flex flex-col lg:flex-row lg:w-[90%] mx-auto my-[10vh] h-[600px]' 
+      className='flex flex-col lg:flex-row lg:w-[90%] mx-auto mb-[15vh] h-[600px] justify-center items-center' 
       name="General-Chart"
       variants={containerVariants}
       initial="hidden"
