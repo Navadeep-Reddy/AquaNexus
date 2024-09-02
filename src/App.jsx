@@ -6,16 +6,18 @@ import Title from './components/Title'
 import Visual from './components/Visual'
 import LineChart from './components/LineChart'
 import PieChart from './components/PieChart'
+import Contact from './components/Contact'
 
 const App = () => {
   return (
     <div >
       <Navbar />
       <Hero />
-      <Title Title={"LineChart"} Subtitle={"Graphical representation of aquatic data"} />
+      <Title Title={"Line Chart"} Subtitle={"Graphical representation of aquatic data"} />
       <LineChart />
+      <Title Title={"Pie Chart"} Subtitle={"Graphical representation of aquatic data"} />
       <PieChart />
-      
+      <Contact />
     </div>
   )
 }

@@ -45,7 +45,7 @@ const PieChart = () => {
   return (
     <motion.div 
       ref={containerRef}
-      className='flex flex-col lg:flex-row lg:w-[90%] mx-auto mb-24'
+      className='flex flex-col lg:flex-row lg:w-[90%] mx-auto mb-24 mt-[10vh]'
       variants={containerVariants}
       initial="hidden"
       animate={isContainerInView ? "visible" : "hidden"}

@@ -21,9 +21,9 @@ const Navbar = () => {
 
         <ul className='font-medium xl:text-2xl lg:text-2xl text-xl text-AccentCoral flex cursor-pointer'>
             <li className='mx-5'><Link to="Top" smooth={true} duration={500} offset={0}>Home</Link></li>
-            <li className='mx-5'><Link to="Visuals" smooth={true} duration={500} offset={0}>Visualize</Link></li>
+            <li className='mx-5'><Link to="General-Chart" smooth={true} duration={500} offset={-350}>Visualize</Link></li>
             <li className='mx-5'>Download</li>
-            <li className='mx-5'>Contact</li>
+            <li className='mx-5'><Link to="Contact" smooth={true} duration={500} offset={0}>Contact</Link></li>
         </ul>
         </div>
     </div>
