@@ -1,12 +1,7 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
+
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -54,7 +49,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-export default class Example extends PureComponent {
+export default class Example extends PureComponent { 
   static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-active-shape-y93si';
 
   state = {
@@ -68,6 +63,8 @@ export default class Example extends PureComponent {
   };
 
   render() {
+  const {data} = this.props;
+
     return (
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>

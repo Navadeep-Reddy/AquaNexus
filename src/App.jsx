@@ -14,12 +14,42 @@ const App = () => {
       <Navbar />
       <Hero />
       <Title Title={"Line Chart"} Subtitle={"Graphical representation of aquatic data"} />
-      <LineChart />
+      <LineChart GetChartData={GetAllSpeciesCount}/>
       <Title Title={"Pie Chart"} Subtitle={"Graphical representation of aquatic data"} />
-      <PieChart />
+      <PieChart GetChartData={GetTotalSpeciesCount} />
       <Contact />
     </div>
   )
+}
+
+async function GetAllSpeciesCount() {
+  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/population/species/alltime?districtID=1';
+  try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data['jsonfile'];
+  } catch (error) {
+      console.error('Error:', error);
+      throw error; // Re-throw the error to be handled by the caller
+  }
+}
+
+async function GetTotalSpeciesCount() {
+  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/population/Total?districtID=1';
+  try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data['jsonfile'];
+  } catch (error) {
+      console.error('Error:', error);
+      throw error; // Re-throw the error to be handled by the caller
+  }
 }
 
 export default App

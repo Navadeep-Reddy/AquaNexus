@@ -3,7 +3,14 @@ import { motion, useInView } from 'framer-motion';
 import MyPieChart from './ChartComponents/MyPieChart';
 import Map from './Map';
 
-const PieChart = () => {
+const temp_data = [
+  { name: 'Group A', value: 400 },
+  { name: 'Group B', value: 300 },
+  { name: 'Group C', value: 300 },
+  { name: 'Group D', value: 200 },
+];
+
+const PieChart = ({GetChartData}) => {
   const [position, setPosition] = useState(null);
   const containerRef = useRef(null);
   const chartRef = useRef(null);
@@ -45,7 +52,7 @@ const PieChart = () => {
   return (
     <motion.div 
       ref={containerRef}
-      className='flex flex-col lg:flex-row lg:w-[90%] mx-auto mb-24 mt-[10vh]'
+      className='flex flex-col lg:flex-row lg:w-[90%] mx-auto mb-24'
       variants={containerVariants}
       initial="hidden"
       animate={isContainerInView ? "visible" : "hidden"}
@@ -57,7 +64,7 @@ const PieChart = () => {
         initial="hidden"
         animate={isChartInView ? "visible" : "hidden"}
       >
-        <MyPieChart />
+        <MyPieChart data ={temp_data} />
       </motion.div>
 
       <motion.div 

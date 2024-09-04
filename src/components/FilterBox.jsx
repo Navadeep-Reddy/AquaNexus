@@ -3,7 +3,7 @@ import { FaCircleArrowLeft, FaCircleArrowRight } from "react-icons/fa6";
 import { motion } from 'framer-motion';
 
 const FilterBox = ({ data, selectedItems, SetSelectedItems }) => {
-  const All_Species = Object.keys(data[0]).filter((key) => key !== "date");
+  const All_Species = Object.keys(data[0]).filter((key) => key !== "RecordDate");
 
   const slider = useRef();
   const [X_Pos, setX_Pos] = useState(0);

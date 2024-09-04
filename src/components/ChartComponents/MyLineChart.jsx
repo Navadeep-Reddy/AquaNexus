@@ -12,17 +12,18 @@ const MyLineChart = ({ data, selectedItems, setSelectedItems }) => {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
+          <XAxis dataKey="RecordDate" />
           <YAxis domain={[minValue, maxValue]} /> 
           <Tooltip />
           <Legend />
 
           <Line
             type="monotone"
-            dataKey={Object.keys(data[0]).find(key => key !== 'date')}
+            dataKey={Object.keys(data[0]).find(key => key !== 'RecordDate')}
             stroke="transparent"
             strokeWidth={0}
-          />
+            />
+            console.log(dataKey);
           {selectedItems.map((key, index) => (
             <Line
               type="monotone"
