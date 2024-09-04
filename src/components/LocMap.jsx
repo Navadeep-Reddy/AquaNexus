@@ -76,7 +76,7 @@ const MapComponent = ({ position, setPosition }) => {
       className="rounded-xl border border-bg-PrimaryBlue z-0 shadow-xl"
       center={mapCenter}
       zoom={5}
-      style={{ height: '400px', width: '100%' }}
+      style={{ height: '400px', width: '450px' }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

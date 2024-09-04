@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import Map from './Map';
+import Map from './PieMap';
 import axios from 'axios';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
