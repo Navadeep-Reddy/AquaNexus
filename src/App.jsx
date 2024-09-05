@@ -3,10 +3,10 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Title from './components/Title'
-import Visual from './components/Visual'
 import LineChart from './components/LineChart'
 import PieChart from './components/PieChart'
 import Contact from './components/Contact'
+import Location_Prob from './components/Location_Prob'
 
 const App = () => {
   return (
@@ -15,8 +15,8 @@ const App = () => {
       <Hero />
       <Title Title={"Line Chart"} Subtitle={"Graphical representation of aquatic data"} />
       <LineChart GetChartData={GetAllSpeciesCount}/>
-      <Title Title={"Pie Chart"} Subtitle={"Graphical representation of aquatic data"} />
       <PieChart GetChartData={GetTotalSpeciesCount} />
+      <Location_Prob />
       <Contact />
     </div>
   )
