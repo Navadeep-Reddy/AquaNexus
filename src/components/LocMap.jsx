@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Polygon, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const MapComponent = ({ position, setPosition }) => {
+const MapComponent = ({ position, setPosition, getData }) => {
   const [mapCenter, setMapCenter] = useState([11.5937, 70.9629]); // Default center to India
 
   useEffect(() => {
@@ -26,7 +26,9 @@ const MapComponent = ({ position, setPosition }) => {
         setPosition(e.latlng);
 
         // Getting coordinates of the location selected on the map
-        console.log(position);  
+        const object = {features: [position.lat, position.lng]}
+        getData(object)
+        console.log(position.lat);  
       },
     });
 
