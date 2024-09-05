@@ -15,7 +15,7 @@ const App = () => {
       <Hero />
       <Title Title={"Line Chart"} Subtitle={"Graphical representation of aquatic data"} />
       <LineChart GetChartData={GetAllSpeciesCount}/>
-      <PieChart GetChartData={GetTotalSpeciesCount} />
+      <PieChart GetChartData={GetTotalSpeciesCount} DistrictsLookUp={GetDistrictsLookUp} GetCoordinates={GetDistrictCoordinates} />
       <Location_Prob />
       <Contact />
     </div>
@@ -38,7 +38,7 @@ async function GetAllSpeciesCount() {
 }
 
 async function GetTotalSpeciesCount() {
-  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/population/Total?districtID=1';
+  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/population/Total?districtID=3';
   try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
@@ -51,5 +51,35 @@ async function GetTotalSpeciesCount() {
       throw error; // Re-throw the error to be handled by the caller
   }
 }
+
+async function GetDistrictCoordinates() {
+  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/allcoordinates';
+  try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data['jsonfile'];
+  } catch (error) {
+      console.error('Error:', error);
+      throw error; // Re-throw the error to be handled by the caller
+  }
+};
+
+async function GetDistrictsLookUp() {
+  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/districts';
+  try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data['jsonfile'];
+  } catch (error) {
+      console.error('Error:', error);
+      throw error; // Re-throw the error to be handled by the caller
+  }
+};
 
 export default App

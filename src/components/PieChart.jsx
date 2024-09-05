@@ -1,19 +1,41 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import MyPieChart from './ChartComponents/MyPieChart';
 import Title from '../components/Title';
 import PieMap from './PieMap';
+import { data } from 'autoprefixer';
 
-const temp_data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+const testData = [
+  { name: 'Test A', value: 500 },
+  { name: 'Test B', value: 200 },
+  { name: 'Test C', value: 300 },
 ];
 
-const temp_dist = ['District 1', 'District 2', 'District 3', 'District 4', 'District 5', 'District 6']
 
-const PieChart = ({ GetChartData }) => {
+const PieChart = ({ GetChartData, DistrictsLookUp, GetCoordinates }) => {
+  const [temp_data, setData] = useState([{ SpeciesName: 'fish', TotalCount: 100 }]);
+  const [temp_dist, setData2] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await GetChartData();
+
+      const transformedData = data.map(item => ({name : item.SpeciesName, value: item.TotalCount}));
+      setData(transformedData);
+      console.log(transformedData);
+      console.log(testData);
+    };
+    fetchData();
+  }, [GetChartData]);
+
+  useEffect(() => {
+    const fetchData2 = async () => {
+      const data = await DistrictsLookUp();
+      setData2(data.map(district => ({ id: district.DistrictID, name: district.DistrictName })));
+    };
+    fetchData2();
+  }, [DistrictsLookUp]);
+
   const [position, setPosition] = useState(null);
   const containerRef = useRef(null);
   const chartRef = useRef(null);
@@ -94,11 +116,13 @@ const PieChart = ({ GetChartData }) => {
               <option selected disabled hidden>
                 Choose Area
               </option>
-              {temp_dist.map((key, index) => {
-                return(<option key = {index}>{key}</option>)
-              })}
+              {temp_dist.map((district) => (
+                <option key={district.id} value={district.id}>
+                  {district.name}
+                </option>
+              ))}
             </select>
-            <PieMap position={position} setPosition={setPosition} />
+            <PieMap position={position} setPosition={setPosition} GetCoordinates={GetCoordinates} />
           </div>
         </motion.div>
       </motion.div>

@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Polygon, useMapEvents } from 'react-le
 import 'leaflet/dist/leaflet.css';
 
 const MapComponent = ({ position, setPosition }) => {
-  const [mapCenter, setMapCenter] = useState([20.5937, 78.9629]); // Default center to India
+  const [mapCenter, setMapCenter] = useState([11.5937, 70.9629]); // Default center to India
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -23,7 +23,10 @@ const MapComponent = ({ position, setPosition }) => {
   const LocationMarker = () => {
     useMapEvents({
       click(e) {
-        setPosition(e.latlng);  // Only update marker position
+        setPosition(e.latlng);
+
+        // Getting coordinates of the location selected on the map
+        console.log(position);  
       },
     });
 
@@ -32,17 +35,17 @@ const MapComponent = ({ position, setPosition }) => {
 
   // Define the coordinates of the polygon (e.g., a triangle or rectangle)
   const polygonCoordinates = [
-    [8, 73],
-    [15,76],
-    [8, 76],
-    [15, 73]
+    [8, 71.6],
+    [8, 73.7],
+    [15, 71.6],
+    [15, 73.7]
   ];
 
   return (
     <MapContainer
       className="rounded-xl border border-bg-PrimaryBlue z-0 shadow-xl"
       center={mapCenter}
-      zoom={5}
+      zoom={6}
       style={{ height: '350px', width: '100%' }}
     >
       <TileLayer

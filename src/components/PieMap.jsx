@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-lea
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.heat';
 
-const heat_map_coordinates = []
 
 
 
@@ -35,9 +34,9 @@ const HeatmapLayer = ({ data }) => {
   return null;
 };
 
-const MapComponent = ({ position, setPosition }) => {
-  const [mapCenter, setMapCenter] = useState([20.5937, 78.9629]); // Default center to India
-  const [heatmapData, setHeatmapData] = useState(
+const MapComponent = ({ position, setPosition, GetCoordinates }) => {
+  const [mapCenter, setMapCenter] = useState([56, -5]); // Default center to India
+  const [heatmapData, setData] = useState(
     [
     [19.0760, 72.8777, 1],   
     [28.7041, 77.1025, 1],   
@@ -45,6 +44,24 @@ const MapComponent = ({ position, setPosition }) => {
     [22.5726, 88.3639, 1],  
     [12.9716, 77.5946, 1],   
     [18.5204, 73.8567, 1],   ]);
+
+  useEffect(()=>{
+    const fetchData=async () => {
+      const data=await GetCoordinates();
+      //console.log(data)
+      const newData=data.map((Coordinate)=>{
+        // return [1,2,1]
+          return [Coordinate['Latitude'],Coordinate['Longitude'],1]
+        })
+        //console.log(newData);
+        setData(newData);
+    };
+    fetchData();
+  }, []);
+
+
+
+
 
   useEffect(() => {
     if (navigator.geolocation) {
