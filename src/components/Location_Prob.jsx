@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import Title from '../components/Title';
 import MyBarChart from './ChartComponents/MyBarChart';
-import LocMap from '/home/navadeep/Documents/AquaNexus/src/components/LocMap.jsx'
+import LocMap from './LocMap.jsx'
 
 const temp_data = [
   { name: 'Fish 1', Probability: 3000 },
