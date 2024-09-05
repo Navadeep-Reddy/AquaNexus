@@ -37,8 +37,8 @@ async function GetAllSpeciesCount() {
   }
 }
 
-async function GetTotalSpeciesCount() {
-  const apiUrl = 'https://fishapiserver.azurewebsites.net/api/population/Total?districtID=3';
+async function GetTotalSpeciesCount(id) {
+  const apiUrl = `https://fishapiserver.azurewebsites.net/api/population/Total?districtID=${id}`;
   try {
       const response = await fetch(apiUrl);
       if (!response.ok) {

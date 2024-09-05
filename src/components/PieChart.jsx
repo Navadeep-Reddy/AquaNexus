@@ -5,25 +5,25 @@ import Title from '../components/Title';
 import PieMap from './PieMap';
 import { data } from 'autoprefixer';
 
-const testData = [
-  { name: 'Test A', value: 500 },
-  { name: 'Test B', value: 200 },
-  { name: 'Test C', value: 300 },
-];
+// const testData = [
+//   { name: 'Test A', value: 500 },
+//   { name: 'Test B', value: 200 },
+//   { name: 'Test C', value: 300 },
+// ];
 
 
 const PieChart = ({ GetChartData, DistrictsLookUp, GetCoordinates }) => {
-  const [temp_data, setData] = useState([{ SpeciesName: 'fish', TotalCount: 100 }]);
-  const [temp_dist, setData2] = useState([]);
+  const [data, setData] = useState([{ SpeciesName: 'fish', TotalCount: 100 }]);
+  const [dist, setData2] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await GetChartData();
+      const data = await GetChartData(1);
 
       const transformedData = data.map(item => ({name : item.SpeciesName, value: item.TotalCount}));
       setData(transformedData);
-      console.log(transformedData);
-      console.log(testData);
+      //console.log(transformedData);
+      //console.log(testData);
     };
     fetchData();
   }, [GetChartData]);
@@ -35,6 +35,15 @@ const PieChart = ({ GetChartData, DistrictsLookUp, GetCoordinates }) => {
     };
     fetchData2();
   }, [DistrictsLookUp]);
+
+
+  //Function that runs when district is changed
+  const UpdateChart = async (id) => {
+    const newData = await GetChartData(id);
+    const transformedData = newData.map(item => ({name: item.SpeciesName, value: item.TotalCount}))
+    console.log(transformedData)
+    setData(transformedData)
+  }
 
   const [position, setPosition] = useState(null);
   const containerRef = useRef(null);
@@ -92,7 +101,7 @@ const PieChart = ({ GetChartData, DistrictsLookUp, GetCoordinates }) => {
           initial="hidden"
           animate={isChartInView ? 'visible' : 'hidden'}
         >
-          <MyPieChart data={temp_data} />
+          <MyPieChart data={data} />
         </motion.div>
 
         <motion.div
@@ -112,12 +121,13 @@ const PieChart = ({ GetChartData, DistrictsLookUp, GetCoordinates }) => {
           </div>
 
           <div className="w-full flex items-center flex-col">
-            <select className="h-[30px] lg:w-[450px] w-[250px] px-2 font-medium my-5 rounded-md bg-PrimaryBlue text-BackgroundSand">
+            <select className="h-[30px] lg:w-[450px] w-[250px] px-2 font-medium my-5 rounded-md bg-PrimaryBlue text-BackgroundSand" onChange={(event) => UpdateChart(event.target.value)}>
               <option selected disabled hidden>
                 Choose Area
               </option>
-              {temp_dist.map((district) => (
-                <option key={district.id} value={district.id}>
+
+              {dist.map((district) => (
+                <option key={district.id} value={district.id} >
                   {district.name}
                 </option>
               ))}
