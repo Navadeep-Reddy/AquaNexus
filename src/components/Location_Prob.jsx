@@ -37,7 +37,7 @@ const Location_Prob = () => {
   
 
   return (
-    <div className='mb-28'>
+    <div className='mb-28' name = "ML">
       <Title Title={"Forecast"} Subtitle={"Predicting fish occurrence probabilities"} />
       <div className='my-28 w-[90%] mx-auto flex'>
         <div className='w-1/2'>
